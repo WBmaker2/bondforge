@@ -1,0 +1,46 @@
+import type { BondOrder, ElementSymbol, Vec3 } from '../chem/types';
+import type { ViewPreferences } from '../storage/progress';
+import type { MobilePanel, ModalState, Route, Tool } from './state';
+
+export interface AppActions {
+  navigate(route: Route): void;
+  openMission(id: string): void;
+  exitMission(): void;
+  requestExitMission(): void;
+  submitPrediction(answer: string): void;
+  checkMission(): void;
+  prepareNextStep(): void;
+  nextMission(): void;
+  openPredictionGate(): void;
+  setTool(tool: Tool, element?: ElementSymbol | null): void;
+  selectElement(element: ElementSymbol): void;
+  selectAtom(atomId: number | null): void;
+  selectBond(bondId: number | null): void;
+  beginBond(atomId: number): void;
+  cancelPendingBond(): void;
+  placeAtom(position: Vec3): void;
+  clickAtom(atomId: number): void;
+  clickBond(bondId: number): void;
+  clickBackground(position: Vec3): void;
+  deleteSelection(): void;
+  deleteBond(bondId: number): void;
+  setBondOrder(bondId: number, order: BondOrder): void;
+  fillHydrogens(): void;
+  resetMolecule(): void;
+  undo(): void;
+  redo(): void;
+  toggleView(key: keyof ViewPreferences): void;
+  focusAtom(atomId: number): void;
+  resetCamera(): void;
+  openModal(modal: ModalState): void;
+  closeModal(): void;
+  confirmResetProgress(): void;
+  toggleTeacherAnswers(): void;
+  printWorksheet(): void;
+  selectTeacherMission(missionId: string): void;
+  selectTeacherPreviewOption(optionId: string): void;
+  setMobilePanel(panel: MobilePanel): void;
+  toggleInspector(): void;
+  dismissToast(): void;
+  announce(messageKo: string): void;
+}

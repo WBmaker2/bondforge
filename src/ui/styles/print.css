@@ -1,0 +1,234 @@
+#worksheet-print {
+  display: none;
+}
+
+@media print {
+  @page {
+    size: A4;
+    margin: 14mm;
+  }
+
+  html,
+  body {
+    height: auto !important;
+    overflow: visible !important;
+    background: #fff !important;
+    color: #111 !important;
+  }
+
+  body > #app,
+  body > .modal-dialog,
+  body > .toast-region,
+  .skip-link {
+    display: none !important;
+  }
+
+  body > #worksheet-print {
+    display: block !important;
+  }
+
+  #worksheet-print,
+  #worksheet-print * {
+    color: #111 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    font-family:
+      'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif !important;
+  }
+
+  #worksheet-print {
+    font-size: 10.5pt;
+    line-height: 1.55;
+  }
+
+  .worksheet-page {
+    max-width: 100%;
+  }
+
+  .ws-header {
+    padding-bottom: 10px;
+    border-bottom: 2px solid #111;
+    margin-bottom: 12px;
+  }
+
+  .ws-brand {
+    font-size: 10pt;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .ws-brand span {
+    font-weight: 500;
+    color: #555 !important;
+    margin-left: 6px;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+
+  .ws-header h1 {
+    font-size: 21pt;
+    line-height: 1.2;
+    letter-spacing: -0.03em;
+    margin-top: 4px;
+  }
+
+  .ws-header p {
+    margin-top: 8px;
+    font-size: 10pt;
+  }
+
+  .ws-instructions {
+    padding: 7px 9px;
+    border: 1px solid #c9cfd8;
+    border-radius: 5px;
+    background: #f7f8fa !important;
+    font-size: 9.5pt;
+    line-height: 1.55;
+  }
+
+  .ws-mission {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    margin: 12px 0;
+    padding: 12px 14px;
+    border: 1px solid #c9cfd8;
+    border-radius: 7px;
+  }
+
+  .ws-mission-head {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .ws-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    flex: none;
+    border: 1.5px solid #111;
+    border-radius: 50%;
+    font-size: 9pt;
+    font-weight: 800;
+  }
+
+  .ws-mission-head h2 {
+    font-size: 13pt;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+  }
+
+  .ws-meta {
+    margin-top: 2px;
+    color: #555 !important;
+    font-size: 8.5pt;
+  }
+
+  .ws-prompt {
+    margin-top: 7px;
+    font-size: 10pt;
+    line-height: 1.55;
+  }
+
+  .ws-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px 14px;
+    margin-top: 8px;
+  }
+
+  .ws-option {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 9.5pt;
+  }
+
+  .ws-checkbox {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border: 1px solid #333;
+    border-radius: 2px;
+  }
+
+  .ws-write {
+    margin-top: 9px;
+  }
+
+  .ws-label {
+    display: block;
+    color: #444 !important;
+    font-size: 8.5pt;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+  }
+
+  .ws-lines {
+    margin-top: 4px;
+  }
+
+  .ws-lines span {
+    display: block;
+    height: 19px;
+    border-bottom: 1px solid #c9cfd8;
+  }
+
+  .ws-footer {
+    margin-top: 14px;
+    padding-top: 6px;
+    border-top: 1px solid #c9cfd8;
+    color: #777 !important;
+    font-size: 8pt;
+    text-align: center;
+  }
+
+  .ws-answer-key {
+    break-before: page;
+    page-break-before: always;
+    padding-top: 8px;
+  }
+
+  .ws-answer-key > h1 {
+    padding-bottom: 8px;
+    border-bottom: 2px solid #111;
+    font-size: 18pt;
+  }
+
+  .ws-answer {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    margin: 11px 0;
+    padding: 9px 11px;
+    border: 1px solid #d4d9e2;
+    border-radius: 6px;
+  }
+
+  .ws-answer h2 {
+    font-size: 12pt;
+    margin-bottom: 4px;
+  }
+
+  .ws-answer h2 span {
+    color: #666 !important;
+    font-size: 10pt;
+    font-weight: 500;
+    margin-left: 5px;
+  }
+
+  .ws-answer p {
+    font-size: 9.5pt;
+    line-height: 1.55;
+    margin-top: 3px;
+  }
+
+  .ws-answer ul {
+    margin: 4px 0;
+    padding-left: 17px;
+    font-size: 9.5pt;
+  }
+}

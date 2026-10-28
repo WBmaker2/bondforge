@@ -1,0 +1,173 @@
+[
+  {
+    "id": "h2o-shape",
+    "titleKo": "물의 굽은 모양",
+    "concept": "vsepr",
+    "formulaKo": "H₂O",
+    "promptKo": "물 분자 H₂O의 분자 모양은 무엇일까요?",
+    "options": ["선형", "굽은형", "삼각평면형", "정사면체형"],
+    "answer": "굽은형",
+    "target": {
+      "formula": "H2O",
+      "geometry": "bent",
+      "polarity": "polar",
+      "angle": 104.5
+    },
+    "explanationKo": "산소 O에는 결합 2개와 비공유 전자쌍 2개가 있어 전자 영역이 4개입니다. 전자 영역은 정사면체로 배열되지만 비공유 전자쌍 2개가 두 방향을 차지하므로 O–H 결합은 굽은형이 됩니다. 두 O–H 결합 쌍극자가 완전히 상쇄되지 않아 물은 극성입니다.",
+    "takeawayKo": "비공유 전자쌍도 공간을 차지한다. 그래서 H₂O는 선형이 아니라 굽은형이다.",
+    "difficulty": 1
+  },
+  {
+    "id": "co2-polarity",
+    "titleKo": "CO₂는 왜 무극성일까?",
+    "concept": "polarity",
+    "formulaKo": "CO₂",
+    "promptKo": "CO₂에는 극성 결합 C=O가 있습니다. 분자 전체의 극성은 어떨까요?",
+    "options": ["극성", "무극성", "이온성", "판단할 수 없음"],
+    "answer": "무극성",
+    "target": {
+      "formula": "CO2",
+      "geometry": "linear",
+      "polarity": "nonpolar",
+      "angle": 180
+    },
+    "explanationKo": "C=O 결합은 극성이지만 C를 중심으로 두 결합이 180° 정반대에 있습니다. 두 결합 쌍극자의 크기가 같고 방향이 반대라 벡터 합이 0이 됩니다. 그래서 CO₂는 무극성입니다.",
+    "takeawayKo": "극성 결합이 있어도 분자 모양이 대칭이면 전체는 무극성일 수 있다.",
+    "difficulty": 2
+  },
+  {
+    "id": "ch4-nh3-h2o",
+    "titleKo": "같은 전자 영역, 다른 모양",
+    "concept": "vsepr",
+    "formulaKo": "CH₄ · NH₃ · H₂O",
+    "promptKo": "CH₄, NH₃, H₂O는 모두 중심 원자의 전자 영역이 4개입니다. 분자 모양이 달라지는 까닭은 무엇일까요?",
+    "options": [
+      "중심 원자의 크기가 달라서",
+      "비공유 전자쌍 수가 달라서",
+      "결합 차수가 달라서",
+      "원자 수가 달라서"
+    ],
+    "answer": "비공유 전자쌍 수가 달라서",
+    "target": {
+      "formula": "CH4",
+      "geometry": "tetrahedral",
+      "polarity": "nonpolar",
+      "angle": 109.5
+    },
+    "steps": [
+      {
+        "id": "ch4",
+        "labelKo": "CH₄",
+        "target": {
+          "formula": "CH4",
+          "geometry": "tetrahedral",
+          "polarity": "nonpolar",
+          "angle": 109.5
+        }
+      },
+      {
+        "id": "nh3",
+        "labelKo": "NH₃",
+        "target": {
+          "formula": "NH3",
+          "geometry": "trigonal-pyramidal",
+          "polarity": "polar",
+          "angle": 107
+        }
+      },
+      {
+        "id": "h2o",
+        "labelKo": "H₂O",
+        "target": {
+          "formula": "H2O",
+          "geometry": "bent",
+          "polarity": "polar",
+          "angle": 104.5
+        }
+      }
+    ],
+    "explanationKo": "전자 영역은 모두 정사면체로 배열되지만 비공유 전자쌍이 0개, 1개, 2개로 늘어나면서 결합이 차지하는 방향이 줄어듭니다. 그래서 정사면체 → 삼각뿔 → 굽은형으로 변합니다.",
+    "takeawayKo": "전자 영역 기하는 같아도 비공유 전자쌍 수에 따라 분자 기하가 달라진다.",
+    "difficulty": 2
+  },
+  {
+    "id": "c4h10-isomers",
+    "titleKo": "C₄H₁₀의 두 가지 구조",
+    "concept": "isomer",
+    "formulaKo": "C₄H₁₀",
+    "promptKo": "분자식 C₄H₁₀은 구조 이성질체가 몇 가지일까요? 두 구조를 모두 만들어 보세요.",
+    "options": ["1가지", "2가지", "3가지", "4가지"],
+    "answer": "2가지",
+    "target": {
+      "formula": "C4H10",
+      "isomerCount": 2
+    },
+    "explanationKo": "C₄H₁₀은 탄소가 일렬로 연결된 뷰테인(사슬형)과 가운데 탄소에 가지가 달린 아이소뷰테인(가지형)의 두 가지 구조 이성질체가 있습니다. 원자의 연결 순서가 다르므로 서로 다른 분자입니다.",
+    "takeawayKo": "같은 분자식이라도 원자의 연결 방식이 다르면 다른 분자다.",
+    "difficulty": 3
+  },
+  {
+    "id": "bf3-vs-nh3",
+    "titleKo": "BF₃와 NH₃의 극성",
+    "concept": "polarity",
+    "formulaKo": "BF₃ · NH₃",
+    "promptKo": "BF₃와 NH₃는 모두 중심 원자에 3개의 결합이 있습니다. 두 분자의 극성은 어떻게 다를까요?",
+    "options": [
+      "둘 다 극성",
+      "둘 다 무극성",
+      "BF₃는 무극성, NH₃는 극성",
+      "BF₃는 극성, NH₃는 무극성"
+    ],
+    "answer": "BF₃는 무극성, NH₃는 극성",
+    "target": {
+      "formula": "BF3",
+      "geometry": "trigonal-planar",
+      "polarity": "nonpolar",
+      "angle": 120
+    },
+    "steps": [
+      {
+        "id": "bf3",
+        "labelKo": "BF₃",
+        "target": {
+          "formula": "BF3",
+          "geometry": "trigonal-planar",
+          "polarity": "nonpolar",
+          "angle": 120
+        }
+      },
+      {
+        "id": "nh3",
+        "labelKo": "NH₃",
+        "target": {
+          "formula": "NH3",
+          "geometry": "trigonal-pyramidal",
+          "polarity": "polar",
+          "angle": 107
+        }
+      }
+    ],
+    "explanationKo": "BF₃는 평면 삼각형으로 세 B–F 쌍극자가 120° 간격으로 상쇄되어 무극성입니다. NH₃는 비공유 전자쌍 1개 때문에 삼각뿔형이고, 세 N–H 쌍극자가 한쪽으로 모여 상쇄되지 않아 극성입니다.",
+    "takeawayKo": "중심 원자의 비공유 전자쌍이 모양을 바꾸고, 모양이 극성을 바꾼다.",
+    "difficulty": 3
+  },
+  {
+    "id": "c2h2-triple",
+    "titleKo": "C₂H₂의 삼중 결합",
+    "concept": "bond-order",
+    "formulaKo": "C₂H₂",
+    "promptKo": "C₂H₂를 만들 때 두 탄소 사이에는 어떤 결합이 있을까요?",
+    "options": ["단일 결합", "이중 결합", "삼중 결합", "이온 결합"],
+    "answer": "삼중 결합",
+    "target": {
+      "formula": "C2H2",
+      "geometry": "linear",
+      "polarity": "nonpolar",
+      "angle": 180,
+      "bondOrder": 3
+    },
+    "explanationKo": "C₂H₂(에타인)는 H–C≡C–H 구조입니다. 각 탄소는 결합 2개(전자 영역 2개)를 가지므로 선형이고 C≡C 삼중 결합이 있습니다. 두 C–H 쌍극자는 반대 방향으로 상쇄되어 무극성입니다.",
+    "takeawayKo": "결합 차수는 분자의 모양과 성질을 바꾼다.",
+    "difficulty": 2
+  }
+]
