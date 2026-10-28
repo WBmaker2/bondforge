@@ -239,6 +239,7 @@ export class SceneManager {
     this.renderer.domElement.addEventListener('pointermove', this.onPointerMove);
     this.renderer.domElement.addEventListener('dblclick', this.onDoubleClick);
     this.renderer.domElement.addEventListener('keydown', this.onKeyDown);
+    document.addEventListener('pointerdown', this.onDocumentPointerDown, true);
     document.addEventListener('visibilitychange', this.onVisibilityChange);
     window.addEventListener('resize', this.resize);
 
@@ -306,12 +307,12 @@ export class SceneManager {
 
   private buildCursor(): void {
     const ghost = new THREE.Mesh(this.sphereLowGeometry, this.cursorMaterial);
-    ghost.scale.setScalar(0.32);
+    ghost.scale.setScalar(0.24);
     this.cursorGroup.add(ghost);
     const ring = new THREE.Mesh(this.ringGeometry, this.cursorMaterial);
     ring.rotation.x = -Math.PI / 2;
-    ring.scale.setScalar(0.6);
-    ring.position.y = -0.34;
+    ring.scale.setScalar(0.45);
+    ring.position.y = -0.26;
     this.cursorGroup.add(ring);
     this.cursorGroup.visible = false;
   }
@@ -787,6 +788,12 @@ export class SceneManager {
     };
   }
 
+  private onDocumentPointerDown = (event: PointerEvent): void => {
+    if (event.target === this.renderer.domElement) return;
+    this.keyboardMode = false;
+    this.cursorGroup.visible = false;
+  };
+
   private onPointerDown = (event: PointerEvent): void => {
     if (event.button !== 0) return;
     this.keyboardMode = false;
@@ -913,6 +920,7 @@ export class SceneManager {
     this.resizeObserver?.disconnect();
     window.removeEventListener('resize', this.resize);
     document.removeEventListener('visibilitychange', this.onVisibilityChange);
+    document.removeEventListener('pointerdown', this.onDocumentPointerDown, true);
     this.renderer.domElement.removeEventListener('pointerdown', this.onPointerDown);
     this.renderer.domElement.removeEventListener('pointerup', this.onPointerUp);
     this.renderer.domElement.removeEventListener('pointermove', this.onPointerMove);

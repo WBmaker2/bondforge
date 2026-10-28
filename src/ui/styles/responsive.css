@@ -362,8 +362,59 @@
     flex: 1;
     min-height: 0;
     overflow-y: auto;
-    padding: 8px 8px max(12px, env(safe-area-inset-bottom));
+    padding: 8px 8px 10px;
     overscroll-behavior: contain;
+  }
+
+  .mobile-sheet > .mobile-mission-bar {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex: none;
+    padding: 7px 9px max(7px, env(safe-area-inset-bottom));
+    border-top: 1px solid rgba(148, 163, 184, 0.14);
+    background: rgba(12, 21, 38, 0.97);
+  }
+
+  .mobile-mission-bar[hidden] {
+    display: none;
+  }
+
+  .mobile-mission-target {
+    flex: 1;
+    min-width: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--muted);
+    font-size: 9.5px;
+    font-weight: 600;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .mobile-mission-target strong {
+    color: var(--gold);
+    font-size: 13px;
+    letter-spacing: -0.02em;
+  }
+
+  .mobile-mission-target span {
+    color: var(--muted-2);
+    font-size: 9px;
+  }
+
+  .mobile-mission-bar .btn {
+    flex: none;
+    min-height: 32px;
+    padding: 0 8px;
+    font-size: 10.5px;
+    border-radius: 9px;
   }
 
   .mobile-panel {
@@ -555,6 +606,12 @@
 
   .teacher-formula {
     font-size: 15px;
+  }
+}
+
+@media (max-width: 767px) and (max-height: 500px) {
+  .mobile-sheet > .mobile-mission-bar {
+    display: none !important;
   }
 }
 

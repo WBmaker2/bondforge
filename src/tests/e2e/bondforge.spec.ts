@@ -273,6 +273,33 @@ test('respects reduced motion preferences', async ({ page }) => {
   expect(animationName).toBe('none');
 });
 
+test('completes H2O on mobile with the quick mission bar', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/#/missions');
+  await page.locator('.mission-card button[data-mission="h2o-shape"]').click();
+  await page.locator('.modal-dialog .prediction-option').filter({ hasText: '굽은형' }).click();
+  await page.waitForFunction(() => !document.querySelector('.modal-dialog[open]'));
+  await expect(page.locator('.mobile-tab.is-active')).toHaveText('원자');
+  const bar = page.locator('.mobile-sheet > .mobile-mission-bar');
+  await expect(bar).toBeVisible();
+  await expect(bar).toContainText('H2O');
+  await expect(bar.locator('[data-action="check"]')).toBeVisible();
+  await expect(bar.locator('[data-action="fill"]')).toBeHidden();
+  await expect(page.locator('#mobile-tab-inspect .tab-badge')).toHaveText('');
+
+  await page.locator('.mobile-panel [data-element="O"]').click();
+  await page.locator('.scene-canvas').focus();
+  await page.keyboard.press('Enter');
+  await expect(bar.locator('[data-action="fill"]')).toBeVisible();
+  await bar.locator('[data-action="fill"]').click();
+  await expect(page.locator('.stage-formula')).toContainText('H2O');
+  await bar.locator('[data-action="check"]').click();
+  await expect(page.locator('.modal-dialog[open]')).toBeVisible();
+  await expect(page.locator('#modal-title')).toHaveText('물의 굽은 모양');
+  await page.locator('.modal-dialog [data-modal-action="close"]').click();
+  await expect(page.locator('#mobile-tab-mission')).toHaveAttribute('aria-selected', 'true');
+});
+
 test('opens and closes the tablet inspector drawer', async ({ page }) => {
   await page.setViewportSize({ width: 1024, height: 768 });
   await page.goto('/#/build');

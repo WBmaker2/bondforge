@@ -57,6 +57,7 @@ import { StageOverlay } from '../ui/components/StageOverlay';
 import { Topbar } from '../ui/components/Topbar';
 import { Palette } from '../ui/components/Palette';
 import { MissionHub } from '../features/missions/MissionHub';
+import { MobileMissionBar } from '../features/missions/MobileMissionBar';
 import { TeacherView } from '../features/teacher/TeacherView';
 import { el } from '../ui/components/dom';
 
@@ -110,6 +111,7 @@ export class App implements AppActions {
   private mobilePalette: Palette;
   private mobileInspector: Inspector;
   private mobileMissionStrip: MissionStrip;
+  private mobileMissionBar: MobileMissionBar;
   private missionHub: MissionHub;
   private teacherView: TeacherView;
 
@@ -154,6 +156,7 @@ export class App implements AppActions {
     this.mobilePalette = new Palette(this);
     this.mobileInspector = new Inspector(this);
     this.mobileMissionStrip = new MissionStrip(this);
+    this.mobileMissionBar = new MobileMissionBar(this);
     this.missionHub = new MissionHub(this);
     this.teacherView = new TeacherView(this);
 
@@ -343,7 +346,7 @@ export class App implements AppActions {
       this.mobilePanels.set(tab.panel, panel);
       panels.appendChild(panel);
     }
-    return el('div', { className: 'mobile-sheet' }, tabs, panels);
+    return el('div', { className: 'mobile-sheet' }, tabs, panels, this.mobileMissionBar.root);
   }
 
   private createScene(): void {
@@ -424,6 +427,7 @@ export class App implements AppActions {
       this.mobilePalette.update(state);
       this.mobileInspector.update(state);
       this.mobileMissionStrip.update(state);
+      this.mobileMissionBar.update(state);
       this.updateMobileTabs(state);
       this.summary.textContent = moleculeSummary(state.molecule, state.layout);
       this.scene?.setPaused(false);
@@ -468,7 +472,7 @@ export class App implements AppActions {
       panel.hidden = !active;
       badge.textContent = '';
       badge.className = 'tab-badge';
-      if (tab.panel === 'inspect' && issueCount > 0) {
+      if (tab.panel === 'inspect' && issueCount > 0 && state.molecule.atoms.length > 0) {
         badge.textContent = String(Math.min(9, issueCount));
         badge.classList.add('is-warn');
       }
@@ -959,7 +963,8 @@ export class App implements AppActions {
         completed: result.completed || current.mission.completed,
         feedback
       },
-      modal: result.completed ? { kind: 'explanation', missionId: mission.id } : current.modal
+      modal: result.completed ? { kind: 'explanation', missionId: mission.id } : current.modal,
+      ui: window.innerWidth < 768 ? { ...current.ui, mobilePanel: 'mission' } : current.ui
     }));
     this.announce(
       result.completed
