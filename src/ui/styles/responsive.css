@@ -385,6 +385,10 @@
     backdrop-filter: none;
   }
 
+  .mobile-panel .palette-panel .panel-heading {
+    display: none;
+  }
+
   .mobile-panel .element-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     padding: 2px 0 0;

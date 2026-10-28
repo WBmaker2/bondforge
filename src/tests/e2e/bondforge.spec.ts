@@ -284,6 +284,18 @@ test('opens and closes the tablet inspector drawer', async ({ page }) => {
   await expect(page.locator('.workspace')).not.toHaveClass(/inspector-open/);
 });
 
+test('keeps oxygen visible in a short landscape palette', async ({ page }) => {
+  await page.setViewportSize({ width: 667, height: 375 });
+  await page.goto('/#/build');
+  await expect(page.locator('.mobile-sheet')).toBeVisible();
+  const oxygen = page.locator('.mobile-panel [data-element="O"]');
+  await expect(oxygen).toBeVisible();
+  const box = await oxygen.boundingBox();
+  expect(box).not.toBeNull();
+  if (!box) return;
+  expect(box.y + box.height).toBeLessThanOrEqual(375);
+});
+
 test('supports keyboard tab navigation in the mobile sheet', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/#/build');

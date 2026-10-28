@@ -19,9 +19,9 @@ export interface ElementData {
 
 export const ELEMENTS = elementData as Record<ElementSymbol, ElementData>;
 
-export const ELEMENT_LIST: ElementSymbol[] = ['H', 'C', 'N', 'O', 'F', 'Cl', 'B'];
+export const ELEMENT_LIST: ElementSymbol[] = ['H', 'O', 'C', 'N', 'F', 'Cl', 'B'];
 
-export const PALETTE_ELEMENTS: ElementSymbol[] = ['H', 'C', 'N', 'O', 'F', 'Cl', 'B'];
+export const PALETTE_ELEMENTS: ElementSymbol[] = ['H', 'O', 'C', 'N', 'F', 'Cl', 'B'];
 
 export function getElement(symbol: ElementSymbol): ElementData {
   return ELEMENTS[symbol];
